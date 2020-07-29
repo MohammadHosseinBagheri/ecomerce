@@ -1,0 +1,38 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 25px 0px;
+  height: 40px;
+  align-items: center;
+  width:100vw;
+  .options{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .option {
+      margin: 0px 5px;
+      border: 0.5px solid #eeeeee;
+      padding: 12px;
+      border-radius: 4px;
+      box-shadow: 2px 2px 5px #eeeeee;
+      transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 14px;
+      width: 60px;
+      &:hover{
+        color: #eeeeee;
+        background-color: black;
+        box-shadow: 2px 2px 5px black;
+        border-color: black;
+  
+      }
+      &:last-child{
+        margin-right:40px ;
+      }
+    }
+  }
+}

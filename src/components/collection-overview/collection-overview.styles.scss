@@ -1,0 +1,13 @@
+.collection-overview {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .collection-items {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  
