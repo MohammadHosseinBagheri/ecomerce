@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
 import ShoppingBag from "../shopping-bag/shopping-cart.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 const Header = (props) => {
   const signOut = () => {
     auth.signOut();
@@ -36,12 +37,14 @@ const Header = (props) => {
         </Link>
         <ShoppingBag />
       </div>
+      {props.hidden ? null : <CartDropdown  />}
     </div>
   );
 };
 const mapStateToProps = (state) => {
   return {
     user: state.user,
+    hidden: state.cart.hidden,
   };
 };
 export default connect(mapStateToProps)(Header);
