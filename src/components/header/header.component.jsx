@@ -2,18 +2,25 @@ import React from "react";
 import "./header.styles.scss";
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils";
-const Header = ({ isUser }) => {
+import { connect } from "react-redux";
+import ShoppingBag from "../shopping-bag/shopping-cart.component";
+const Header = (props) => {
   const signOut = () => {
     auth.signOut();
-    localStorage.removeItem("user");
   };
   return (
     <div className="header">
-      <div className="logo">Logo</div>
+      <img
+        style={{ width: 100, height: 100, marginLeft: 20 }}
+        src={require("../../assets/icons/logo.png")}
+      />
       <div className="options">
-        {isUser ? (
-          <div style={{textTransform:'uppercase'}} className="option" onClick={() => signOut()}>
-            
+        {props.user ? (
+          <div
+            style={{ textTransform: "uppercase" }}
+            className="option"
+            onClick={() => signOut()}
+          >
             Log Out
           </div>
         ) : (
@@ -27,9 +34,14 @@ const Header = ({ isUser }) => {
         <Link to="/shop" className="option">
           CONTACT
         </Link>
+        <ShoppingBag />
       </div>
     </div>
   );
 };
-
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user,
+  };
+};
+export default connect(mapStateToProps)(Header);
