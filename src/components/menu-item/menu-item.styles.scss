@@ -3,7 +3,6 @@
   flex: 1 1 auto;
   justify-content: center;
   align-items: center;
-  border: 1px solid black;
   display: flex;
   height: 240px;
   margin: 5px;
@@ -40,11 +39,12 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 10%;
     height: 90px;
-    border: 1px solid black;
     padding: 5px 20px;
     position: absolute;
-    background-color: blanchedalmond;
+    background-color: #eeeeee;
     opacity: 0.5;
+    border-radius: 9px;
   }
 }
