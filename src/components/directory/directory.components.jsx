@@ -9,8 +9,7 @@ const Directory = () => {
       subtitle: "adidas",
       linkUrl: "hats",
       size: "",
-      imageUrl:
-        "https://scene7.zumiez.com/is/image/zumiez/pdp_hero/Champion-Men-s-Rally-Pro-Black-%26-White-Shoes-_298256-front-US.jpg",
+      imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
     },
     {
       id: "1",
@@ -18,15 +17,13 @@ const Directory = () => {
       subtitle: "police",
       size: "",
       linkUrl: "hats",
-      imageUrl:
-        "https://cdn.mr-sunglass.com/media/catalog/product/cache/2/small_image/196x196/9df78eab33525d08d6e5fb8d27136e95/p/o/police-s8103v-627x-mr-sunglass-190605213667.jpg",
+      imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
     },
     {
       id: "2",
       title: "pans",
       subtitle: "black white",
-      imageUrl:
-        "https://scene7.zumiez.com/is/image/zumiez/pdp_hero/Champion-Men-s-Rally-Pro-Black-%26-White-Shoes-_298256-front-US.jpg",
+      imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
       linkUrl: "hats",
       size: "",
     },
@@ -34,8 +31,7 @@ const Directory = () => {
       id: "3",
       title: "tshirt",
       subtitle: "nike",
-      imageUrl:
-        "https://images-na.ssl-images-amazon.com/images/I/613SYKy-XPL._UX522_.jpg",
+      imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
       size: "large",
       linkUrl: "hats",
     },
@@ -43,7 +39,7 @@ const Directory = () => {
       id: "4",
       title: "hats",
       subtitle: "filla",
-      imageUrl: "https://i.ebayimg.com/images/g/~fEAAOSwUcteRs1a/s-l300.jpg",
+      imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
       size: "large",
       linkUrl: "hats",
     },
