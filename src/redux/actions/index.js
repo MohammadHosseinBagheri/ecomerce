@@ -11,3 +11,9 @@ export const logOutUser = (user) => {
     type: types.LOGOUT_USER,
   };
 };
+
+export const toggleDropdown = () => {
+  return {
+    type: types.TOGGLE_DROPDOWN,
+  };
+};
