@@ -7,13 +7,8 @@ import Shop from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SingInAndSignUp from "./pages/sign-in-sign-up/sign-in-sign-up.component";
 import { auth, createUserProfile } from "./firebase/firebase.utils";
-
-const HatsPage = () => (
-  <div>
-    <h1>Hats Page</h1>
-  </div>
-);
-
+import { connect } from "react-redux";
+import { currentUser } from "./redux/actions";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -23,26 +18,19 @@ class App extends React.Component {
   }
   isUser = () => {
     auth.onAuthStateChanged(async (user) => {
-      // setUser(user);
       if (user) {
         const userRef = await createUserProfile(user);
         userRef.onSnapshot((snapShot) => {
-          console.log(snapShot);
+          const uid = snapShot.ua.path.segments[1];
+          this.props.setCurrentUser(uid);
         });
       }
-      this.setState({
-        authUser: user,
-      });
-      // if (this.state.authUser) {
-      //   this.props.history.replace("/shop");
-      // }
-      // await createUserProfile(user);
-      // console.log(user);
-      // localStorage.setItem('user',JSON.stringify(user))
+      this.props.setCurrentUser(user);
     });
   };
   componentDidMount() {
     this.isUser();
+    console.log(this.props);
   }
   render() {
     return (
@@ -62,4 +50,17 @@ class App extends React.Component {
     );
   }
 }
-export default withRouter(App);
+const mapStateToProps = (state) => {
+  return {
+    ...state,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setCurrentUser: (user) => {
+      dispatch(currentUser(user));
+    },
+  };
+};
+const  WITHROUTERAPP=withRouter(App)
+export default connect(mapStateToProps, mapDispatchToProps)(WITHROUTERAPP);
