@@ -1,0 +1,22 @@
+.shopping-cart {
+  display: flex;
+  position: relative;
+  align-items: center;
+  .shopping-cart-counter {
+      position: absolute;
+      top:0;
+      left: 0;
+      background-color: tomato;
+      border-radius: 10000px;
+      height: 13px;
+      width: 13px;
+      text-align: center;
+      align-self: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto 0px;
+      color: white;
+      font-size: 12px;
+  }
+}
