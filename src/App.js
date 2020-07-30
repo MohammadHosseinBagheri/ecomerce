@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Switch, Route, withRouter } from "react-router-dom";
+import { Switch, Route, withRouter, Redirect } from "react-router-dom";
 import HomePage from "./pages/homepage/homepage.component";
 import Shop from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
@@ -12,9 +12,6 @@ import { currentUser } from "./redux/actions";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      authUser: null,
-    };
   }
   isUser = () => {
     auth.onAuthStateChanged(async (user) => {
@@ -30,20 +27,25 @@ class App extends React.Component {
   };
   componentDidMount() {
     this.isUser();
-    console.log(this.props);
+    console.log(this.props.user);
   }
   render() {
     return (
       <div>
-        <Header isUser={this.state.authUser} />
+        <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={Shop} />
           <Route
             exact
             path="/sign-in"
-            isUser={this.state.authUser}
-            component={SingInAndSignUp}
+            render={(props) =>
+              this.props.user ? (
+                <Redirect to="/" />
+              ) : (
+                <SingInAndSignUp {...props} />
+              )
+            }
           />
         </Switch>
       </div>
@@ -52,7 +54,7 @@ class App extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
-    ...state,
+    user: state.user,
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -62,5 +64,5 @@ const mapDispatchToProps = (dispatch) => {
     },
   };
 };
-const  WITHROUTERAPP=withRouter(App)
+const WITHROUTERAPP = withRouter(App);
 export default connect(mapStateToProps, mapDispatchToProps)(WITHROUTERAPP);
