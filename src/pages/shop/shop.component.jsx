@@ -5,7 +5,7 @@ const Shop = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
     setData(SHOP_DATA);
-    console.log(data)
+    // console.log(data)
   }, [data]);
   return data.map(({ id, ...otherProps }) => (
     <CollectionOverview key={id} {...otherProps} />
