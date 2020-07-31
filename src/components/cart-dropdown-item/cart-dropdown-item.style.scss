@@ -1,0 +1,19 @@
+.cart-dopdown-items {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 6px;;
+  img {
+    width: 50px;
+    margin-right: 5px;
+    border-radius: 5px;
+  }
+  .cart-dropdown-items-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
