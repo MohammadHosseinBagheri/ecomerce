@@ -17,10 +17,10 @@ const SingInAndSignUp = () => {
     }
     setPassword(value);
   };
-  console.log(email, password);
+  // console.log(email, password);
   const onSubmit = (event) => {
     event.preventDefault();
-    console.log(email);
+    // console.log(email);
   };
   return (
     <div className="sign-in-and-sign-up">

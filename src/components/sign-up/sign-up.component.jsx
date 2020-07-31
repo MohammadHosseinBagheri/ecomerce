@@ -9,7 +9,7 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const onSubmit = async (event) => {
     event.preventDefault();
-    console.log(email, displayName, password, confirmPassword);
+    // console.log(email, displayName, password, confirmPassword);
     if (password !== confirmPassword) {
       alert("password not mached");
       return;
@@ -21,7 +21,7 @@ const SignUp = () => {
       );
       await createUserProfile(user, {displayName});
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   const handleChange = (event) => {
