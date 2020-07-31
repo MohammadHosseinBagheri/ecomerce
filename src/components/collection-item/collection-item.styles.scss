@@ -5,22 +5,57 @@
   align-items: center;
   flex: 1 1 100%;
   margin: 10px 15px;
+  position: relative;
+  justify-content: center;
+  &.collection-item:hover {
+    .image {
+      opacity: 0.8;
+    }
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0.8;
+    }
+  }
+  button {
+    position: absolute;
+    background-color: #eeeeee;
+    border-radius: 8px;
+    width: 80%;
+    height: 40px;
+    border: none;
+    outline-style: none;
+    bottom: 38px;
+    left: 0;
+    right: 0;
+    margin-right: auto;
+    text-align: center;
+    margin-left: auto;
+    display: none;
+    cursor: pointer;
+    &:hover {
+      background-color: black;
+      color: white;
+      opacity: 1;
+    }
+  }
   .image {
     background-size: cover;
     background-position: center;
     width: 100%;
     height: 95%;
   }
-  .collection-footer{
-      width: 100%;
-      height: 5%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+  .collection-footer {
+    width: 100%;
+    height: 5%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
-@media(min-width:768px){
-  .collection-item{
+@media (min-width: 768px) {
+  .collection-item {
     flex: 1 1 22%;
   }
 }
