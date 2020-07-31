@@ -15,11 +15,11 @@ const config = {
 export const createUserProfile = async (user, otherData) => {
   if (!user) return;
   const { uid } = await user;
-  console.log(uid);
+  // console.log(uid);
   let userAuth = fireStore.doc(`users/${uid}`);
   // console.log(uid)
   const snapShot = await userAuth.get();
-  console.log(snapShot.exists);
+  // console.log(snapShot.exists);
   if (!snapShot.exists) {
     const createdAt = new Date();
     const { displayName, email } = await user;
