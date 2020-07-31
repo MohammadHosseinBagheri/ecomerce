@@ -9,7 +9,7 @@ const CollectionOverview = ({ title, items }) => {
         {items
           .filter((item, index) => index < 4)
           .map(({ id, ...otherProps }) => (
-            <CollectionItem key={id} {...otherProps} />
+            <CollectionItem key={id} id={id} {...otherProps} />
           ))}
       </div>
     </div>
