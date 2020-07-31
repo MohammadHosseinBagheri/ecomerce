@@ -17,3 +17,10 @@ export const toggleDropdown = () => {
     type: types.TOGGLE_DROPDOWN,
   };
 };
+
+export const addToCart = (item) => {
+  return {
+    type: types.ADD_TO_CART,
+    item,
+  };
+};
