@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import "./shopping-cart.styles.scss";
 import { toggleDropdown } from "../../redux/actions";
 const ShoppingBag = (props) => {
-  console.log(props.user);
-  console.log(props);
+  // console.log(props.user);
+  // console.log(props);
   return (
     <div
       style={{
@@ -21,13 +21,14 @@ const ShoppingBag = (props) => {
         style={{ color: "black", width: "50%", height: "50%" }}
         src={require("../../assets/icons/shopping-bag-3-line-basket.png")}
       />
-      <span className="shopping-cart-counter"> 5 </span>
+      <span className="shopping-cart-counter"> {props.countOfProductType.length} </span>
     </div>
   );
 };
 const mapStateToProps = (state) => {
   return {
     user: state.user,
+    countOfProductType: state.cart.addedItems,
   };
 };
 const mapDispatchToProps = (dispatch) => {
