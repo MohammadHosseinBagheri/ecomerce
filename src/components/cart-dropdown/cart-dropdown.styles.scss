@@ -1,5 +1,5 @@
 .cart-dropdown {
-  position: fixed;
+  position: absolute;
   //   border: 1px black solid;
   box-shadow: 2px 2px 10px black;
   height: 340px;
@@ -20,16 +20,19 @@
       opacity: 1;
     }
   }
-  animation-name:dropdownOpacity ;
-  animation-duration: 0.5s; 
+  animation-name: dropdownOpacity;
+  animation-duration: 0.5s;
   .cart-item {
     overflow-y: scroll;
-   
+
     height: 260px;
     display: flex;
     flex-direction: column;
   }
-  button {
+  .checkout-button {
+    align-items: center;
+    justify-content: center;
+    display: flex;
     margin-top: auto;
     height: 50px;
     outline-style: none;
