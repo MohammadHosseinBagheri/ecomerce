@@ -24,3 +24,15 @@ export const addToCart = (item) => {
     item,
   };
 };
+export const removeSelectedItem = (id) => {
+  return {
+    type: types.REMOVE_SELECTED_ITEM,
+    id,
+  };
+};
+export const decreaseItemFromCart = (id) => {
+  return {
+    type: types.DECREASE_ITEM_FROM_CART,
+    id,
+  };
+};
