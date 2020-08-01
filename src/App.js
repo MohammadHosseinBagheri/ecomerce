@@ -9,6 +9,7 @@ import SingInAndSignUp from "./pages/sign-in-sign-up/sign-in-sign-up.component";
 import { auth, createUserProfile } from "./firebase/firebase.utils";
 import { connect } from "react-redux";
 import { currentUser } from "./redux/actions";
+import Checkout from "./pages/checkout/checkout.component";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -36,6 +37,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={Shop} />
+          <Route exact path="/checkout" component={Checkout} />
           <Route
             exact
             path="/sign-in"
