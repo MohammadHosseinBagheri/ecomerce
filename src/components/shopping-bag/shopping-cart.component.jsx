@@ -21,14 +21,20 @@ const ShoppingBag = (props) => {
         style={{ color: "black", width: "50%", height: "50%" }}
         src={require("../../assets/icons/shopping-bag-3-line-basket.png")}
       />
-      <span className="shopping-cart-counter"> {props.countOfProductType.length} </span>
+      <span className="shopping-cart-counter">
+        {" "}
+        {props.countOfProductType}{" "}
+      </span>
     </div>
   );
 };
 const mapStateToProps = (state) => {
   return {
     user: state.user,
-    countOfProductType: state.cart.addedItems,
+    countOfProductType: state.cart.addedItems.reduce(
+      (acumulatedQuantity, item) => acumulatedQuantity + item.quantity,
+      0
+    ),
   };
 };
 const mapDispatchToProps = (dispatch) => {
