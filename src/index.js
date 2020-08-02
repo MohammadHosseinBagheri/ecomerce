@@ -8,13 +8,25 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import logger from "redux-logger";
 import reducer from "./redux/reducers";
+import { persistStore, persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+import { PersistGate } from "redux-persist/integration/react";
+const config = {
+  key: "root",
+  storage,
+  whiteList: "cart",
+};
+const persistReducerr = persistReducer(config, reducer);
 var middlewares = [logger];
-const store = createStore(reducer, applyMiddleware(...middlewares));
+const store = createStore(persistReducerr, applyMiddleware(...middlewares));
+const persistor = persistStore(store);
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <PersistGate  persistor={persistor} >
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </PersistGate>
   </Provider>,
   document.getElementById("root")
 );
