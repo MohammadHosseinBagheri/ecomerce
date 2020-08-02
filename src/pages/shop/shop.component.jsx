@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
-import SHOP_DATA from "./shop.data.js";
+import React from "react";
 import CollectionOverview from "../../components/collection-overview/conllection-overview.jsx";
-const Shop = () => {
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    setData(SHOP_DATA);
-    // console.log(data)
-  }, [data]);
-  return data.map(({ id, ...otherProps }) => (
+import { connect } from "react-redux";
+const Shop = ({ shopData }) => {
+  return shopData.map(({ id, ...otherProps }) => (
     <CollectionOverview key={id} {...otherProps} />
   ));
 };
 
-export default Shop;
+const mapStateToProps = (state) => {
+  return {
+    shopData: state.shop,
+  };
+};
+
+export default connect(mapStateToProps)(Shop);
