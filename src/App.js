@@ -10,6 +10,7 @@ import { auth, createUserProfile } from "./firebase/firebase.utils";
 import { connect } from "react-redux";
 import { currentUser } from "./redux/actions";
 import Checkout from "./pages/checkout/checkout.component";
+import Category from "./pages/category/category.component";
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -37,6 +38,7 @@ class App extends React.Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/shop" component={Shop} />
+          <Route exact path="/shop/:categoryId" component={Category} />
           <Route exact path="/checkout" component={Checkout} />
           <Route
             exact

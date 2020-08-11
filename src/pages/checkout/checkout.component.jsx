@@ -2,6 +2,7 @@ import React from "react";
 import "./checkout.styles.scss";
 import { connect } from "react-redux";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
+import CheckoutButton from "../../components/checkout-button/checkout-button.component";
 const Checkout = ({ addedItems, totalPrice }) => {
   return (
     <div className="checkout">
@@ -16,6 +17,7 @@ const Checkout = ({ addedItems, totalPrice }) => {
         <CheckoutItem item={item} key={item.id} />
       ))}
       <div className="checkout-totla-price">total : ${totalPrice}</div>
+      <CheckoutButton price={totalPrice} />
     </div>
   );
 };

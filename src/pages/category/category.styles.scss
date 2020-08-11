@@ -1,0 +1,17 @@
+.category-page-container {
+  width: 100%;
+  display: flex;
+
+  flex-direction: column;
+  .category-item{
+      display: flex;
+      flex-wrap: wrap;
+  }
+  @media(min-width:768px){
+    .category-item{
+        flex-basis: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+  }
+}
