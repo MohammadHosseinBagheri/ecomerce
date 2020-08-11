@@ -1,14 +1,23 @@
 .collection-overview {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  overflow: hidden;
+  h2 {
+    margin-left: 20px;
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px black solid;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
   }
+}
 
-  .collection-items {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    flex-wrap: wrap;
-  }
-  
+.collection-items {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
