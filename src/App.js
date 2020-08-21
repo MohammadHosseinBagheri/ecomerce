@@ -6,7 +6,11 @@ import HomePage from "./pages/homepage/homepage.component";
 import Shop from "./pages/shop/shop.component";
 import Header from "./components/header/header.component";
 import SingInAndSignUp from "./pages/sign-in-sign-up/sign-in-sign-up.component";
-import { auth, createUserProfile } from "./firebase/firebase.utils";
+import {
+  auth,
+  createUserProfile,
+  addCollectionAndDocument,
+} from "./firebase/firebase.utils";
 import { connect } from "react-redux";
 import { currentUser } from "./redux/actions";
 import Checkout from "./pages/checkout/checkout.component";
@@ -14,22 +18,33 @@ import Category from "./pages/category/category.component";
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.items = this.props.collection;
+    console.log(this.items);
   }
   isUser = () => {
     auth.onAuthStateChanged(async (user) => {
+      // console.log(user);
       if (user) {
         const userRef = await createUserProfile(user);
-        userRef.onSnapshot((snapShot) => {
-          const uid = snapShot.ua.path.segments[1];
-          this.props.setCurrentUser(uid);
+        console.log(userRef.if.path.segments[1]);
+        userRef.onSnapshot( async(snapShot) => {
+        const uid = await userRef.if.path.segments[1];
+        // const uid = snapShot.ua.path.segments[1];
+        // console.log(snapShot);
+        this.props.setCurrentUser(uid);
         });
       }
       this.props.setCurrentUser(user);
     });
   };
+
+  getCollection = () =>
+    addCollectionAndDocument(
+      "collections",
+      this.props.collection.map(({ items, title }) => ({ items, title }))
+    );
   componentDidMount() {
     this.isUser();
-    // console.log(this.props.user);
   }
   render() {
     return (
@@ -59,6 +74,7 @@ class App extends React.Component {
 const mapStateToProps = (state) => {
   return {
     user: state.user,
+    collection: state.shop,
   };
 };
 const mapDispatchToProps = (dispatch) => {

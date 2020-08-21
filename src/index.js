@@ -11,13 +11,14 @@ import reducer from "./redux/reducers";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { PersistGate } from "redux-persist/integration/react";
+import thunk from "redux-thunk";
 const config = {
   key: "root",
   storage,
   whiteList: "cart",
 };
 const persistReducerr = persistReducer(config, reducer);
-var middlewares = [];
+var middlewares = [thunk];
 if (process.env.NODE_ENV === "development") {
   middlewares.push(logger);
 }

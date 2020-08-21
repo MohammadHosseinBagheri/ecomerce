@@ -3,22 +3,26 @@ import { connect } from "react-redux";
 import CollectionItem from "../../components/collection-item/collection.component";
 import "./category.styles.scss";
 const mapCategoryNameToId = (item) => {
-  const mapedItem = item.reduce((obj, item) => {
-    obj[item.routeName] = item.id;
-    return obj;
-  }, {});
+  console.log(Object.values(item));
+  const objectItem=Object.values(item)
+  let mapedItem =objectItem .reduce((obj,item)=>{
+    obj[item.routeName]=item.id;
+    return obj
+  },{});
+  console.log(mapedItem)
   return mapedItem;
 };
 
 const Category = ({ match, shopItem }) => {
   const collectionId = match.params.categoryId;
-//   console.log(collectionId);
+  // console.log(collectionId);
   const mapedData = mapCategoryNameToId(shopItem);
-  const categoryData = shopItem.find(
+  console.log(mapedData)
+  const categoryData = Object.values(shopItem).find(
     (item) => item.id == mapedData[collectionId]
   );
-//   console.log(categoryData);
-//   console.log(mapedData);
+  // console.log(categoryData);
+  // console.log(mapedData);
   return (
     <div className="category-page-container">
       <h2
@@ -38,7 +42,7 @@ const Category = ({ match, shopItem }) => {
 };
 const mapStateToProps = (state) => {
   return {
-    shopItem: state.shop,
+    shopItem: state.shop.collections,
   };
 };
 export default connect(mapStateToProps)(Category);
